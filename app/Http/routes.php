@@ -56,17 +56,32 @@ Route::get('/update', function () {
 });
 
 
-Route::get('/delete', function (){
+Route::get('/delete', function () {
 
 
-   $staff = Staff::find(1);
+    $staff = Staff::find(1);
 
 
-   $staff->photos()->whereId(14)->delete();
+    $staff->photos()->whereId(14)->delete();
 
 });
 
 
+Route::get('/assign', function () {
+
+    $staff = Staff::findOrFail(1);
+
+    $photo = Photo::findOrFail(16);
+
+    $staff->photos()->save($photo);
+
+});
+
+Route::get('/un-assign', function () {
+
+    $staff = Staff::findOrFail(1);
+
+    $staff->photos()->whereId(16)->update(['imageable_id'=>'', 'imageable_type'=>'']);
 
 
-
+});
