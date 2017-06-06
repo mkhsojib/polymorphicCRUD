@@ -25,4 +25,22 @@ Route::get('/create', function (){
 
    $staff->photos()->create(['path'=>'laravel.jpg']);
 
+
 });
+
+
+Route::get('/read', function (){
+
+   $staff = Staff::findOrFail(1);
+
+   foreach ($staff->photos as $photo){
+
+       return $photo->path();
+   }
+
+});
+
+
+
+
+
