@@ -35,7 +35,7 @@ Route::get('/read', function (){
 
    foreach ($staff->photos as $photo){
 
-       return $photo->path();
+       return $photo->path;
    }
 
 });
