@@ -56,6 +56,17 @@ Route::get('/update', function () {
 });
 
 
+Route::get('/delete', function (){
+
+
+   $staff = Staff::find(1);
+
+
+   $staff->photos()->whereId(14)->delete();
+
+});
+
+
 
 
 
